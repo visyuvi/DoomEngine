@@ -1,2 +1,4 @@
 .idea
-__pyache__
+__pycache__
+*.zip
+Doom_Ep1
