@@ -16,6 +16,7 @@ class MapRenderer:
     def draw(self):
         self.draw_vertexes()
         self.draw_linedefs()
+        self.draw_player_pos()
 
     def remap_x(self, n, out_min=30, out_max=WIDTH - 30):
         return ((max(self.x_min, min(n, self.x_max)) - self.x_min) * (
@@ -43,3 +44,9 @@ class MapRenderer:
     def draw_vertexes(self):
         for v in self.vertexes:
             pg.draw.circle(self.engine.screen, 'white', (v.x, v.y), 4)
+
+    def draw_player_pos(self):
+        pos = self.engine.player.pos
+        x = self.remap_x(pos.x)
+        y = self.remap_y(pos.y)
+        pg.draw.circle(self.engine.screen, 'blue', (x, y), 8)
